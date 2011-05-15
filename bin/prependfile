@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+f = File.symlink?(__FILE__) ? File.readlink(__FILE__) : __FILE__
+require File.join(File.dirname(f), '..', 'lib', 'prependfile')
+begin
+  require 'trollop'
+rescue LoadError
+  require 'rubygems'
+  require 'trollop'
+end
+
+opts = Trollop::options do
+  version "PrependFile (c) 2011 Mike Lewis"
+  banner <<-EOS
+prependfile prepends text to FILEs
+
+Usage:
+       prependfile [options] target_file
+
+Examples:
+      
+      prependfile file.cpp --text="PUT THIS ON TOP"
+
+      prependfile file.cpp main.cpp test.cpp --text="This goes on all of them!"
+
+      prependfile *.cpp --file=banner.txt
+
+      prependfile *.rb (this will put you into STDIN)
+
+      prependfile *.rb < banner.txt
+
+where [options] are:
+  EOS
+
+  opt :text, "Text to prepend to file", :type => String
+  opt :file, "Contents of file to prepend to the dest file", :type => String
+end
+
+Trollop::die "need to give a file to prepend to" if ARGV.empty?
+
+
+prepend_content = if opts[:text]
+   [*opts[:text]]
+elsif opts[:file]
+  Trollop::die :file, "must exist" unless File.file?(opts[:file]) && File.exist?(opts[:file])
+  File.readlines(opts[:file])
+else
+  lines = []
+  while(line=$stdin.gets)
+    lines << line
+  end
+  lines
+end.join
+
+unless prepend_content
+  Trollop::die "need to use either the --text or --file option if no text is given via STDIN"
+end
+
+ARGV.each{|f| PrependFile.prepend(f, prepend_content)}

@@ -17,18 +17,18 @@ describe PrependFile do
     end
 
     it "should prepend a file from a given file location to a file given a file name" do
-      PrependFile.prepend(@file_name, "sample_files/prepend_data.txt" )
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file_name, "sample_files/prepend_data" )
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
     it "should prepend a file from a given file object to a file given a file name" do
-      PrependFile.prepend(@file_name, File.new("sample_files/prepend_data.txt"))
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file_name, File.new("sample_files/prepend_data"))
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
     it "should prepend a file from a given IO object to a file given a file name" do
-      PrependFile.prepend(@file_name, File.open("sample_files/prepend_data.txt", 'r'))
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file_name, File.open("sample_files/prepend_data", 'r'))
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
   end
 
@@ -55,18 +55,18 @@ describe PrependFile do
     end
 
     it "should prepend a file from a given file location to a file given a file name" do
-      PrependFile.prepend(@file, "sample_files/prepend_data.txt")
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file, "sample_files/prepend_data")
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
     it "should prepend a file from a given file object to a file given a file name" do
-      PrependFile.prepend(@file, File.new("sample_files/prepend_data.txt"))
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file, File.new("sample_files/prepend_data"))
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
     it "should prepend a file from a given IO object to a file given a file name" do
-      PrependFile.prepend(@file, File.open("sample_files/prepend_data.txt", 'r'))
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file, File.open("sample_files/prepend_data", 'r'))
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
   end
@@ -95,18 +95,18 @@ describe PrependFile do
     end
 
     it "should prepend a file from a given file location to a file given a file name" do
-      PrependFile.prepend(@file, "sample_files/prepend_data.txt")
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file, "sample_files/prepend_data")
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
     it "should prepend a file from a given file object to a file given a file name" do
-      PrependFile.prepend(@file, File.new("sample_files/prepend_data.txt"))
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file, File.new("sample_files/prepend_data"))
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
     it "should prepend a file from a given IO object to a file given a file name" do
-      PrependFile.prepend(@file, File.open("sample_files/prepend_data.txt", 'r'))
-      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data.txt')}#{@original_contents}")
+      PrependFile.prepend(@file, File.open("sample_files/prepend_data", 'r'))
+      File.read(@file_name).should eq("#{File.read('sample_files/prepend_data')}#{@original_contents}")
     end
 
 

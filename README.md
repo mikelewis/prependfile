@@ -8,7 +8,27 @@ Due to the fact that most file systems do not support prepend operations, I deci
 
 ### Command Line
 
-  Coming soon
+    Usage:
+       prependfile [options] target_file
+
+    Examples:
+      
+      prependfile file.cpp --text="PUT THIS ON TOP"
+
+      prependfile file.cpp main.cpp test.cpp --text="This goes on all of them!"
+
+      prependfile *.cpp --file=banner.txt
+
+      prependfile *.rb (this will put you into STDIN)
+
+      prependfile *.rb < banner.txt
+
+    where [options] are:
+      --text, -t <s>:   Text to prepend to file
+      --file, -f <s>:   Contents of file to prepend to the dest file
+       --version, -v:   Print version and exit
+      --help, -h:   Show this message
+
 
 ### Ruby Code  
 
