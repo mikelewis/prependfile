@@ -21,6 +21,7 @@ module PrependFile
     private
 
     def move_temp_to_original(temp, original)
+      original = original.path unless original.is_a?(String)
       FileUtils.mv(temp.path, original)
     end
 
