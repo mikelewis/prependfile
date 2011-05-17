@@ -4,6 +4,9 @@ PrependFile
 Due to the fact that most file systems do not support prepend operations, I decided to create a simple gem to do just that.
 
 
+##Install
+    [sudo] gem install prependfile
+
 ##Usage
 
 ### Command Line
